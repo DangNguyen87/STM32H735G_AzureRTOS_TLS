@@ -75,7 +75,7 @@ extern "C" {
 #ifdef MOSQUITTO_MQTT_PUBLIC
 #define MQTT_BROKER_NAME            "test.mosquitto.org" /* MQTT Server */
 #else
-#define LOCAL_SERVER_ADDRESS        (IP_ADDRESS(192, 168, 0, 105))
+#define LOCAL_SERVER_ADDRESS        (IP_ADDRESS(192, 168, 0, 107))
 #endif /* MOSQUITTO_MQTT_PUBLIC */
 
 

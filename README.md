@@ -1,10 +1,10 @@
 # STM32H735G_AzureRTOS_TLS
 This repository contains the source code to enable AzureRTOS for STM32H735G-DK. The implementation for STM32H735G-DK based on original example from Azure RTOS repository 
-[Getting Started with Azure RTOS and Azure IoT](https://github.com/azure-rtos/getting-started). The appliation on STM32H735G-DK will connect to Mosquitto MQTT broker for subscribing and publishing messages. The communication between the appliation on STM32H735G-DK and MQTT broker will be secured by TLS/SSL transport.
+[Getting Started with Azure RTOS and Azure IoT](https://github.com/azure-rtos/getting-started). The appliation on STM32H735G-DK will connect to Mosquitto MQTT broker for subscribing and publishing messages. The communication between the appliation on STM32H735G-DK and Mosquitto MQTT broker will be secured by TLS/SSL transport.
 
 # What you need
 - [STM32H735G-DK Discovery kit](https://www.st.com/en/evaluation-tools/stm32h735g-dk.html)
-- Ubuntu Linux laptop to run Mosquitto MQTT Broker
+- Ubuntu Linux laptop to run Mosquitto MQTT broker
 - Window or Ubuntu Linux laptop to build applicaition binary image
 
 # Mosquitto MQTT broker configuration
@@ -58,6 +58,8 @@ keyfile /etc/mosquitto/certs/hostname.key
 
 # End of MQTT over TLS/SLL configuration
 ```
+Note: change hostname.crt, hostname.key to your host name
+
 
 After change configuration, restart Mosquitto broker.
 ```console
@@ -80,7 +82,7 @@ openssl x509 -outform der -in hostname.crt -out hostname.der
 xxd -i hostname.der > hostname.h
 ```
 
-In file ```C:\Data\ShareVM\STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\app\Inc\mosquitto.cert.h  line 114 and 116```, update certificate array length and C array from above generated file.
+In file ```STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\app\Inc\mosquitto.cert.h  line 114 and 116```, update array length and certificate array data from ```hostname.h``` file.
 
 ```
 unsigned int mosquitto_org_der_len = ;
