@@ -9,7 +9,7 @@ This repository contains the source code to enable AzureRTOS for STM32H735G-DK. 
 
 # Mosquitto MQTT broker configuration
 
-## Install Mosquitto MQTT broker on Ubuntu laptop
+## Install Mosquitto MQTT broker on Ubuntu Linux laptop
 
 On Ubuntu Linux laptop, use following commands to install Mosquitto broker and client.
 ```console
@@ -29,7 +29,7 @@ mosquitto.service - Mosquitto MQTT Broker
 User can configure Mosquitto broker by modifying congfiguration files at location `/etc/mosquitto`.
 
 ## Configure broker certificates
-Use this [Script](https://github.com/owntracks/tools/blob/master/TLS/generate-CA.sh) to generate a self signed certificate to be used by Mosquito broker for providing TLS for the MQTT.
+Use this [script](https://github.com/owntracks/tools/blob/master/TLS/generate-CA.sh) to generate a self signed certificate to be used by Mosquito broker for providing TLS for the MQTT.
 
 If the script is called without parameters, it will generate a self signed certificate for the hostname where the script is running. The following generated files will be used to configure Mosquitto broker.
 - ca.crt – The CA (Certificate Authority, who published the host certificate) public certificate.
@@ -39,8 +39,8 @@ If the script is called without parameters, it will generate a self signed certi
 Copy the certificates and key files to `/etc/mosquitto/certs` directory.
 
 ```console
-cp ca.crt /etc/mosquitto/certs
-cp hostname.* /etc/mosquitto/certs
+sudo cp ca.crt /etc/mosquitto/certs
+sudo cp hostname.* /etc/mosquitto/certs
 ```
 In `/etc/mosquitto/conf.d` directory, create file `local.conf`. Add the following configuration to `local.conf` to enable MQTT TLS with above certificates and key files.
 
@@ -65,21 +65,26 @@ sudo systemctl restart mosquitto
 ```
 
 # Build the binary image
-Update configuration
+In file ```STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\app\Inc\app_netxduo.h```, change IP address to IP address of your Mosquitto broker.
+```
+#define LOCAL_SERVER_ADDRESS        (IP_ADDRESS(192, 168, 0, 105))
+```
+Todo: config certificate
 
-On Window host (can use Ubuntu Linux host), install the development tools:
+
+On Window host (can use Ubuntu Linux host), install the development tools.
 ```
 STM32H735G_AzureRTOS_TLS\tools\get-toolchain.bat
 ```
 
-Build binary image :
+Build binary image.
 ```
 STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\tools\rebuild.bat
 ```
 
-Flash the below binary file to STM32H735G-DK board:
+Use STM32CubeProgrammer tool to flash the below binary file to STM32H735G-DK board.
 ```
-STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\build\app\stm32l475_azure_iot.bin
+STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\build\app\stm32h735g_azure_iot.bin
 ```
 
 Refer original setup guide from Azure RTOS repository [STMicroelectronics](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/B-L475E-IOT01A)
