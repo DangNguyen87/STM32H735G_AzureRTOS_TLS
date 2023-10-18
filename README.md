@@ -99,7 +99,7 @@ STM32H735G_AzureRTOS_TLS\tools\get-toolchain.bat
 STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\tools\rebuild.bat
 ```
 
-4. Use STM32CubeProgrammer tool to flash the below binary file to STM32H735G-DK board.
+4. Use [STM32CubeProgrammer software](https://www.st.com/en/development-tools/stm32cubeprog.html) to flash the below binary file to STM32H735G-DK board.
 ```
 STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\build\app\stm32h735g_azure_iot.bin
 ```
@@ -107,7 +107,9 @@ STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\build\app\stm32h735g_a
 Refer original setup guide from Azure RTOS repository [STMicroelectronics](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/B-L475E-IOT01A)
 
 # Run application
-
+1. Connect network cable to STM32H735G-DK board.
+2. Configure a serial port app at baud rate 115,200 to monitor the device output.
+3. Connect STM32H735G-DK board to Window host using USB cable.
 
 # Video demonstration
 
