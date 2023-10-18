@@ -65,24 +65,39 @@ sudo systemctl restart mosquitto
 ```
 
 # Build the binary image
-In file ```STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\app\Inc\app_netxduo.h```, change IP address to IP address of your Mosquitto broker.
+Follow below steps to build application for STM32H735G-DK
+1. Update configuration for local Mosquitto broker
+
+In file ```STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\app\Inc\app_netxduo.h```, update IP address to IP address of your Mosquitto broker.
 ```
 #define LOCAL_SERVER_ADDRESS        (IP_ADDRESS(192, 168, 0, 105))
 ```
-Todo: config certificate
 
+Convert certificate file from to .der format and generate C array for importing to application
 
-On Window host (can use Ubuntu Linux host), install the development tools.
+```console
+openssl x509 -outform der -in hostname.crt -out hostname.der
+xxd -i hostname.der > hostname.h
+```
+
+In file ```C:\Data\ShareVM\STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\app\Inc\mosquitto.cert.h  line 114 and 116```, update certificate array length and C array from above generated file.
+
+```
+unsigned int mosquitto_org_der_len = ;
+const unsigned char mosquitto_org_der[] = {}
+```
+
+2. On Window host (can use Ubuntu Linux host), install the development tools.
 ```
 STM32H735G_AzureRTOS_TLS\tools\get-toolchain.bat
 ```
 
-Build binary image.
+3. Build binary image.
 ```
 STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\tools\rebuild.bat
 ```
 
-Use STM32CubeProgrammer tool to flash the below binary file to STM32H735G-DK board.
+4. Use STM32CubeProgrammer tool to flash the below binary file to STM32H735G-DK board.
 ```
 STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\build\app\stm32h735g_azure_iot.bin
 ```
