@@ -4,9 +4,8 @@ This repository contains the source code to enable AzureRTOS for STM32H735G-DK. 
 
 # What you need
 - [STM32H735G-DK Discovery kit](https://www.st.com/en/evaluation-tools/stm32h735g-dk.html)
-- Ubuntu Linux laptop run Mosquitto MQTT Broker
+- Ubuntu Linux laptop to run Mosquitto MQTT Broker
 - Window or Ubuntu Linux laptop to build applicaition binary image
-
 
 # Mosquitto MQTT broker configuration
 
@@ -69,17 +68,17 @@ sudo systemctl restart mosquitto
 Update configuration
 
 On Window host (can use Ubuntu Linux host), install the development tools:
-```console
+```
 STM32H735G_AzureRTOS_TLS\tools\get-toolchain.bat
 ```
 
 Build binary image :
-```console
+```
 STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\tools\rebuild.bat
 ```
 
-Flash the below binary file the device:
-```console
+Flash the below binary file to STM32H735G-DK board:
+```
 STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\build\app\stm32l475_azure_iot.bin
 ```
 
