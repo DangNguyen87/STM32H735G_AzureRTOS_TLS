@@ -78,11 +78,11 @@ In file ```STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\app\Inc\app
 Convert certificate file from to .der format and generate C array for importing to application
 
 ```console
-openssl x509 -outform der -in hostname.crt -out hostname.der
-xxd -i hostname.der > hostname.h
+openssl x509 -outform der -in ca.crt -out ca.der
+xxd -i ca.der > ca.h
 ```
 
-In file ```STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\app\Inc\mosquitto.cert.h  line 114 and 116```, update array length and certificate array data from ```hostname.h``` file.
+In file ```STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\app\Inc\mosquitto.cert.h  line 114 and 116```, update array length and certificate array data from ```ca.h``` file.
 
 ```
 unsigned int mosquitto_org_der_len = ;
