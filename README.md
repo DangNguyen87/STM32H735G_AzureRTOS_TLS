@@ -114,6 +114,8 @@ Refer original setup guide from Azure RTOS repository [STMicroelectronics](https
 # Video demonstration
 
 
-
-
-
+# Reference
+1. https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-9
+2. https://primalcortex.wordpress.com/2016/03/31/mqtt-mosquitto-broker-with-ssltls-transport-security/
+3. https://www.ssl.com/guide/pem-der-crt-and-cer-x-509-encodings-and-conversions/
+4. https://falsinsoft.blogspot.com/2015/03/linux-tool-convert-binary-file-to-cc.html
