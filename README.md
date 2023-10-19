@@ -104,7 +104,7 @@ STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\tools\rebuild.bat
 STM32H735G_AzureRTOS_TLS\STMicroelectronics\STM32H735G-DK\build\app\stm32h735g_azure_iot.bin
 ```
 
-Refer original setup guide from Azure RTOS repository [STMicroelectronics](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/B-L475E-IOT01A)
+Refer to original setup guide from Azure RTOS repository [STMicroelectronics](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/B-L475E-IOT01A)
 
 # Run application
 1. Connect network cable to STM32H735G-DK board.
