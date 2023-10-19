@@ -113,6 +113,7 @@ Refer to original setup guide from Azure RTOS repository [STMicroelectronics](ht
 
 # Video demonstration
 
+[<img src="https://i.ytimg.com/vi/GMq4Z839TdY/hqdefault.jpg">](https://youtu.be/GMq4Z839TdY "AzureRTOS MQTT TLS Demonstration")
 
 # Reference
 1. https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-9
