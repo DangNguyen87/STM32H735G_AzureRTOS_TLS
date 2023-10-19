@@ -32,9 +32,9 @@ User can configure Mosquitto broker by modifying congfiguration files at locatio
 Use this [script](https://github.com/owntracks/tools/blob/master/TLS/generate-CA.sh) to generate a self signed certificate to be used by Mosquito broker for providing TLS for the MQTT.
 
 If the script is called without parameters, it will generate a self signed certificate for the hostname where the script is running. The following generated files will be used to configure Mosquitto broker.
-- ca.crt – The CA (Certificate Authority, who published the host certificate) public certificate.
-- hostname.crt – The hostname, that will run the Mosquitto broker, public certificate.
-- hostname.key – The hostname private key
+- ca.crt – Certificate from the CA (Certificate Authority), the public certificate.
+- hostname.crt – Server certificate, signed by CA with its private key, public certificate.
+- hostname.key – Server Private Key for decrypting of the incoming messages.
 
 Copy the certificates and key files to `/etc/mosquitto/certs` directory.
 
@@ -117,5 +117,7 @@ Refer original setup guide from Azure RTOS repository [STMicroelectronics](https
 # Reference
 1. https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-9
 2. https://primalcortex.wordpress.com/2016/03/31/mqtt-mosquitto-broker-with-ssltls-transport-security/
-3. https://www.ssl.com/guide/pem-der-crt-and-cer-x-509-encodings-and-conversions/
-4. https://falsinsoft.blogspot.com/2015/03/linux-tool-convert-binary-file-to-cc.html
+3. https://mcuoneclipse.com/2017/04/14/enable-secure-communication-with-tls-and-the-mosquitto-broker/
+4. https://devopscube.com/create-self-signed-certificates-openssl/?bcsi-ac-0000000000000000=fcaa142de56deeb40330785a0f7d9a3c1b42f97cb3fb73eb4be2908b4a96ffc4;
+5. https://www.ssl.com/guide/pem-der-crt-and-cer-x-509-encodings-and-conversions/
+6. https://falsinsoft.blogspot.com/2015/03/linux-tool-convert-binary-file-to-cc.html
